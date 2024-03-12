@@ -1,6 +1,6 @@
 namespace GraphQLProject.Models
 {
-    public class Study
+    public class Study : IModel
     {
         /// <summary>
         /// The unique identifier of the study
@@ -40,6 +40,11 @@ namespace GraphQLProject.Models
         public Patient Patient 
         { 
             get; set; 
+        }
+
+        public Guid GetId()
+        {
+            return StudyId;
         }
     }
 }

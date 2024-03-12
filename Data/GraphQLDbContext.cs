@@ -24,6 +24,6 @@ namespace GraphQLProject.Data
         public GraphQLDbContext(DbContextOptions<GraphQLDbContext> options)
             : base(options)
         {
+        }
     }
-}
 }

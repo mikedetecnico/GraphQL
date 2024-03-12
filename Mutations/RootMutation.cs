@@ -7,7 +7,7 @@ namespace GraphQLProject.Mutations
 {
     public class RootMutation : ObjectGraphType
     {
-        public RootMutation(IRepository<Study> studyRepository, IRepository<Patient> patientRepository)
+        public RootMutation(IStudyRepository studyRepository, IPatientRepository patientRepository)
         {
             AddField(new FieldType
             {

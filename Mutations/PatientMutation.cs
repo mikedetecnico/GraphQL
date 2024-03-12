@@ -8,7 +8,7 @@ namespace GraphQLProject.Mutations
 {
     public class PatientMutation : ObjectGraphType
     {
-        public PatientMutation(IRepository<Patient> repository)
+        public PatientMutation(IPatientRepository repository)
         {
             Field<PatientType>("CreatePatient").Arguments(new QueryArguments(new QueryArgument<StudyInputType> { Name = "patient"} )).Resolve(context => {
                 Patient patient = context.GetArgument<Patient>("patient");

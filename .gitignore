@@ -2,3 +2,5 @@
 /GraphQLAPI/obj
 /GraphQLAPI/properties
 /GraphQLAPI/.env
+/GraphQLAPI.Tests/bin
+/GraphQLAPI.Tests/obj

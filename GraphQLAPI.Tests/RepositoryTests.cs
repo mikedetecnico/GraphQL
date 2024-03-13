@@ -85,5 +85,16 @@ namespace GraphQLAPI.Tests
             Assert.That(result.First().FirstName, Is.EqualTo("John"));
             Assert.That(result.First().LastName, Is.EqualTo("Doe"));
         }
+
+        [Test]
+        public void TestUpdatePatient()
+        {
+            Patient updatedPatient = new Patient { PatientId = _patientId, FirstName = "Jane", LastName = "Doe" };
+            Patient? result = _patientRepository.Update(updatedPatient);
+
+            Assert.IsNotNull(result);
+            Assert.That(result.FirstName, Is.EqualTo("Jane"));
+            Assert.That(result.LastName, Is.EqualTo("Doe"));
+        }
     }
 }

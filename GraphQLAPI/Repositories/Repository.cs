@@ -1,3 +1,4 @@
+using System.Reflection;
 using GraphQLProject.Data;
 using GraphQLProject.Models;
 
@@ -99,10 +100,13 @@ namespace GraphQLProject.Repositories
 
             T existingEntity = _dbContext.Find<T>(entity.GetId()) ?? throw new Exception("Entity not found");
 
-            // update all public fields
-            typeof(T).GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance)
-                .ToList()
-                .ForEach(field => field.SetValue(existingEntity, field.GetValue(entity)));
+            // update all public properties
+            PropertyInfo[] props = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
+
+            foreach (PropertyInfo prop in props)
+            {
+                prop.SetValue(existingEntity, prop.GetValue(entity));
+            }
 
             _dbContext.SaveChanges();
 

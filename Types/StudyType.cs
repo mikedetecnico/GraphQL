@@ -8,7 +8,7 @@ namespace GraphQLProject.Types
     {
         public StudyType()
         {
-            Field(x => x.GetId());
+            Field(x => x.StudyId);
             Field(x => x.Modality);
             Field(x => x.NumImages);
             Field(x => x.PatientId);

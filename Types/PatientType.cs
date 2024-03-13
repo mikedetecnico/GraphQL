@@ -7,8 +7,8 @@ namespace GraphQLProject.Types
     {
         public PatientType()
         {
-            Field(x => x.GetId());
-            Field(x => x.FirstName);
+            Field(x => x.PatientId);
+            Field(x => x.FirstName); 
             Field(x => x.LastName);
             Field<ListGraphType<StudyType>>("Studies").Resolve(context => { return context.Source.Studies; });
         }

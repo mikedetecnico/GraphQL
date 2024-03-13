@@ -43,6 +43,7 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Sample Queries
 
+```graphql
 query PatientsQuery {
   patientQuery {
     patients {
@@ -55,7 +56,9 @@ query PatientsQuery {
     }
   }
 }
+```
 
+```graphql
 query PatientQuery {
   patientQuery {
     patient(patientId: "4f0481f2-5d8e-4ecf-9953-6d56442bc4d6") {
@@ -69,7 +72,9 @@ query PatientQuery {
     }
   }
 }
+```
 
+```graphql
 query StudiesQuery {
   studyQuery {
     studies {
@@ -79,3 +84,4 @@ query StudiesQuery {
     }
   }
 }
+```

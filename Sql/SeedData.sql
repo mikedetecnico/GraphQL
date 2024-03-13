@@ -1,26 +1,14 @@
--- Create a new table called '[Studies]' in schema '[dbo]'
--- Drop the table if it already exists
+-- Drop the study table if it already exists
 IF OBJECT_ID('[dbo].[Studies]', 'U') IS NOT NULL
 DROP TABLE [dbo].[Studies]
 GO
 
--- Create the table in the specified schema
-CREATE TABLE [dbo].[Studies]
-(
-    [StudyId] UNIQUEIDENTIFIER PRIMARY KEY default NEWID(), -- Primary Key column
-    [Modality] VARCHAR(50) default ('CT'),
-    [NumImages] int Not NULL,
-    [PatientId] UNIQUEIDENTIFIER not NULL
-);
-GO
-
--- Create a new table called '[Patients]' in schema '[dbo]'
--- Drop the table if it already exists
+-- Drop the patients table if it already exists
 IF OBJECT_ID('[dbo].[Patients]', 'U') IS NOT NULL
 DROP TABLE [dbo].[Patients]
 GO
 
--- Create the table in the specified schema
+-- Create the patients table in the specified schema
 CREATE TABLE [dbo].[Patients]
 (
     [PatientId] UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(), -- Primary Key column
@@ -29,8 +17,15 @@ CREATE TABLE [dbo].[Patients]
 );
 GO
 
-alter table dbo.Studies with NOCHECK
-    add FOREIGN key (PatientId) references dbo.Patients (PatientId) -- add the fk constraint
+-- Create the studies table in the specified schema
+CREATE TABLE [dbo].[Studies]
+(
+    [StudyId] UNIQUEIDENTIFIER PRIMARY KEY default NEWID(), -- Primary Key column
+    [Modality] VARCHAR(50) default ('CT'),
+    [NumImages] int Not NULL,
+    [PatientId] UNIQUEIDENTIFIER not NULL
+    FOREIGN Key (PatientId) REFERENCES [Patients](PatientId)
+);
 GO
 
 -- Seed the tables with test data

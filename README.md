@@ -27,6 +27,11 @@ These instructions will get you a copy of the project up and running on your loc
 1. Build the Docker image: `docker build -t graphqlproject .`
 2. Run the Docker container: `docker run -p 80:80 graphqlproject`
 
+### Running with Docker compose
+
+1. Create a .env file in the root directory with an environment variable called CONNECTION_STRING set with the database connection info.
+2. Build the docker image and run: `docker-compose up --build`
+
 ## Built With
 
 - [.NET 7.0](https://dotnet.microsoft.com/download/dotnet/7.0)

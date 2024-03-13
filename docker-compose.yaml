@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+  api:
+    build: .
+    ports:
+      - "80:80"
+    environment:
+      - ConnectionStrings__GraphQLDbContextConnection=${CONNECTION_STRING}

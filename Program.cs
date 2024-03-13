@@ -36,7 +36,7 @@ builder.Services.AddTransient<RootMutation>();
 
 // schema
 builder.Services.AddTransient<ISchema, RootSchema>();
-builder.Services.AddGraphQL(b => b.AddAutoSchema<ISchema>().AddSystemTextJson());
+builder.Services.AddGraphQL(b => b.AddAutoSchema<ISchema>().AddSystemTextJson().AddErrorInfoProvider(opt => opt.ExposeExceptionDetails = true));
 
 // db connection
 builder.Services.AddDbContext<GraphQLDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("GraphQLDbContextConnection")));
@@ -45,7 +45,7 @@ var app = builder.Build();
 
 app.UseHttpsRedirection();
 
-app.UseGraphiQl("/graphql");
+app.UseGraphiQl("/graphiql");
 app.UseGraphQL<ISchema>();
 
 app.UseAuthorization();

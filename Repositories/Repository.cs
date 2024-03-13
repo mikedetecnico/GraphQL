@@ -13,7 +13,7 @@ namespace GraphQLProject.Repositories
         /// <summary>
         /// The database context.
         /// </summary>
-        private readonly GraphQLDbContext _dbContext;
+        protected readonly GraphQLDbContext _dbContext;
 
         /// <summary>
         /// Constructor for the repository.

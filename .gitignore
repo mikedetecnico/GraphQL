@@ -1,4 +1,4 @@
-/bin
-/obj
-/properties
-.env
+/GraphQLAPI/bin
+/GraphQLAPI/obj
+/GraphQLAPI/properties
+/GraphQLAPI/.env
